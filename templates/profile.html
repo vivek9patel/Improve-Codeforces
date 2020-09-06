@@ -1,0 +1,182 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{user.handle}} Profile</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+
+    <!-- Font -->
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CAllura"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      rel="icon"
+      type="image/jpg"
+      href="https://4.bp.blogspot.com/-XDhgx0rKXZs/XIFWwjkQFSI/AAAAAAAAE80/BZomz5pCmF0FyiqEXqFBcYWOx98noEB_wCPcBGAYYCw/w1200-h630-p-k-no-nu/codeforces.png"
+    />
+    <!-- Stylesheets -->
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <link
+      href="{% static 'profile/common-css/ionicons.css' %}"
+      rel="stylesheet"
+    />
+
+    <link
+      href="{% static 'profile/01-cv-portfolio/css/styles.css' %}"
+      rel="stylesheet"
+    />
+
+    <link
+      href="{% static 'profile/01-cv-portfolio/css/responsive.css' %}"
+      rel="stylesheet"
+    />
+    <style>
+      h4.font-yellow{
+        display: flex;
+        justify-content:center;
+        align-items: center;
+      }
+      .custom-rank-color {
+        font-size: 21px;
+        {% if user.rank == "newbie" %}
+        color: gray;
+        {% elif user.rank == "pupil"%}
+        color: green;
+        {% elif user.rank == "specialist"%}
+        color: rgb(3,168,158);
+        {% elif user.rank == "expert"%}
+        color: blue;
+        {% elif user.rank == "candidate master"%}
+        color: rgb(170,0,170);
+        {% elif user.rank == "master"%}
+        color: rgb(255,140,0);
+        {% elif user.rank == "international master"%}
+        color: rgb(255,140,0);
+        {% elif user.rank == "Grandmaster"%}
+        color: rgb(255,0,255);
+        {% elif user.rank == "international grandmaster"%}
+        color: red;
+        {% else %} 
+        color: red;
+        {% endif %}
+      }
+      .custom-rank-circle{
+        margin-right:5px;
+        margin-left:5px;
+        color:grey;
+        font-size: 17px;
+      }
+    </style>
+  </head>
+  <body>
+  <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+  <!-- Navbar brand -->
+  <span class="navbar-brand">Improve Codeforces</span>
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'contestsTemplates' %}" target="_blank">Future Contests</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}" style = "color:red;font-size: bold;">Logout</a>
+      </li>
+
+     
+
+    </ul>
+    <!-- Links -->
+
+  </div>
+  <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->
+    <section class="intro-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1 col-lg-2"></div>
+          <div class="col-md-10 col-lg-8">
+            <div class="intro">
+              <div class="profile-img">
+                <img src="{{user.titlePhoto}}" alt="" />
+              </div>
+              <h2><b>{{user.firstName}} {{user.lastName}}</b></h2>
+              <h4 class="font-yellow"><b>{{user.rating}}</b><ul><li><span class="custom-rank-circle">●</span><span class="custom-rank-color"><b>{{user.rank}}</b><span></li></ul></h4>
+              <ul class="information margin-tb-30">
+                <li><b>Last Online : </b>{{lastOnline}}</li>
+                {% if user.email|length > 0 %}
+                <li><b>EMAIL : </b>{{user.email}}</li>
+                {% else %}
+                <li><b>EMAIL : </b>no email linked</li>
+                {% endif %} 
+                {% if user.contribution <= 0 %}
+                <li><b>Contribution : <span style="color:red">{{user.contribution}}</span></b></li>
+                {% else %}
+                <li><b>Contribution : <span style="color:green">+{{user.contribution}}<span></b></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="weakSections">
+      <div class="contest-sec">
+        <div class="heading">
+          <h2>
+          <u>Suggested</u> Practice Problems for 
+            <span class="custom-rank-color"> {{user.handle}} </span>
+          </h2>
+        </div>
+        <div class="section2">
+          {% for key,problems in tags.items %}
+            <div class="pro-card">
+							<div class="contentBx">
+								<h2>{{key}}</h2>
+                {% for problem in problems %}
+                  <div class="count-items">
+                    <h3>
+                      <a href="{{problem.1}}" class"problem" target="_blank">{{problem.0}}</a>
+                    </h3>
+                  </div>
+                {% endfor %}
+							</div>
+						</div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <div class="fixedRefresh" id="refresh">
+      <form action="refresh" method="post">
+        {% csrf_token %}
+        <input id="your_name" type="text" name="username" value="{{user.handle}}">
+        <button id="inpt_btn" type="submit" value="OK" name="refresh">
+          <span>Refresh Problems</span>
+          <i class="fa fa-refresh icon" aria-hidden="true"></i>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

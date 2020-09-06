@@ -1,0 +1,475 @@
+/* ---------------------------------
+1. PRIMARY STYLES
+--------------------------------- */
+
+html {
+  font-size: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  margin: 0px;
+  padding: 0px;
+  touch-action: manipulation;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Poppins", serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-wrap: break-word;
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+span,
+li,
+img,
+inpot,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+  font-weight: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Poppins", cursive;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 1.05em;
+  font-weight: 400;
+  color: #777;
+}
+
+h1 {
+  font-size: 4em;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 2.2em;
+  line-height: 1.1;
+}
+
+h3 {
+  font-size: 1.8em;
+}
+
+h4 {
+  font-size: 1.3em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.9em;
+  letter-spacing: 1px;
+}
+
+a,
+button {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  line-height: 1;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+a:focus,
+a:active,
+a:hover,
+button:focus,
+button:active,
+button:hover,
+a b.light-color:hover {
+  text-decoration: none;
+  color: #ffa804;
+}
+
+b {
+  font-weight: 600;
+}
+
+img {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+span {
+  display: inline-block;
+}
+
+button {
+  outline: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 1.1em;
+  display: inline-block;
+  line-height: inherit;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  line-height: inherit;
+}
+
+b.max-bold {
+  font-weight: 700;
+}
+
+.navbar-dark .navbar-toggler {
+  color: blue;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link {
+  color: blue;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: blue;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: blue;
+}
+
+.navbar-dark .navbar-brand {
+  color: blue;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-brand:hover {
+  color: blue;
+}
+
+/* ---------------------------------
+2. PAGE DESIGN
+--------------------------------- */
+
+.section {
+  padding: 100px 0 50px;
+}
+
+.section .heading {
+  margin-bottom: 60px;
+}
+
+.section .heading:before {
+  content: "";
+  height: 10px;
+  width: 50px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: block;
+  background: #ffa804;
+}
+
+.margin-t-10 {
+  margin-top: 10px;
+}
+
+.margin-b-30 {
+  margin-bottom: 30px;
+}
+
+.margin-b-50 {
+  margin-bottom: 50px;
+}
+
+.margin-tb-30 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.font-yellow {
+  color: #ffa600;
+}
+
+.font-semi-white {
+  color: #ddd;
+}
+
+.font-lite-black {
+  color: #999;
+}
+
+/* ---------------------------------
+1. INTRO SECTION
+--------------------------------- */
+
+.intro-section {
+  padding-top: 200px;
+  position: relative;
+  background-size: cover;
+  z-index: 1;
+  background-image: url(../../images/portfolio-19-400x400.jpg);
+}
+
+.intro-section:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.045);
+}
+
+.intro-section:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  z-index: -1;
+  background: #fff;
+}
+
+.intro {
+  padding: 0 20px;
+  margin-top: 100px;
+  text-align: center;
+  background: #fff;
+}
+
+.intro .profile-img {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  top: -100px;
+  margin-bottom: -70px;
+}
+
+.intro .information>li {
+  display: block;
+  margin: 5px 0;
+}
+
+#contests,
+#weakSections {
+  margin-top: 5%;
+  width: 100%;
+}
+
+.contest-sec {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.contest-sec .container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contest-sec .container .card {
+  /* margin-top: 5%; */
+  height: 27rem;
+  width: 20rem;
+  margin: 1%;
+}
+
+.contest-sec .container .card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contest-sec .container .card .card-body .card-title {
+  padding-top: 5px;
+  width: 90%;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.contest-sec .container .card .card-body .card-text {
+  padding-top: 5px;
+}
+
+.contest-sec .container .card .card-body .btn {
+  margin-top: 20px;
+}
+
+#weakSections .contest-sec .heading h2,
+#weakSections .contest-sec .heading span {
+  font-size: 2.2rem !important;
+}
+
+.section2 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  justify-items: center;
+  margin-top: 50px;
+}
+
+.section2>div {
+  /* box-sizing: border-box;   */
+  /* width: calc(1/3*100% - (1 - 1/3)*10px); */
+  /* text-align: center;s */
+  margin: 10px;
+  margin-bottom: 20px;
+  /* and that, will result in a 10px gap */
+}
+
+.section2 .pro-card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  /* background: #4285f4; */
+  background: white;
+  border-radius: 30px;
+  overflow: hidden;
+  -webkit-box-shadow: 1px 5px 20px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 5px 20px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 5px 20px -12px rgba(0, 0, 0, 0.75);
+}
+
+
+.section2 .pro-card .contentBx {
+  position: absolute;
+  width: 100%;
+  margin-top: 30px;
+  /* margin-bottom: -10%; */
+  height: 100%;
+  text-align: center;
+  transition: 1s;
+  z-index: 10;
+}
+
+
+
+.section2 .pro-card .contentBx h2 {
+  position: relative;
+  font-weight: 1000;
+  margin-bottom: 20px;
+  font-size: 28px;
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0);
+}
+
+
+.section2 .pro-card .contentBx .count-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+}
+
+.section2 .pro-card .contentBx .count-items h3 {
+  color: rgb(73, 73, 73);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-right: 10px;
+  margin: 0;
+}
+
+.section2 .pro-card .contentBx .count-items h3 a {
+  font-size: 17px;
+}
+
+/* .section2 .pro-card .contentBx .count-items h3 a:visited {
+  color: #0a0;
+} */
+
+#refresh {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1059FF;
+  width: 42px;
+  height: 42px;
+  border-radius: 40px;
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.1);
+  padding: 17px 0 0 17px;
+}
+
+#refresh form #inpt_btn span {
+  display: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#your_name {
+  display: none;
+}
+
+.icon {
+  color: #ffffff;
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+
+#refresh:hover .icon {
+  display: none;
+}
+
+#refresh:hover {
+  cursor: pointer;
+  width: 180px;
+  transition: 0.5s all;
+}
+
+#refresh:hover form #inpt_btn span {
+  display: inherit;
+}
