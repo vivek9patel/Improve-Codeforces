@@ -124,12 +124,13 @@ def getProblems(tag, rank, minSolvedCount, maxSolvedCount):
     count = 0
     lengthOfProblemSet = len(allProblems)
     j = 0
+    alreadySuggested = {}
     while(j < lengthOfProblemSet):
         j += 1
         i = random.randint(0, lengthOfProblemSet-1)
         if tag in allProblems[i]['tags']:
-            if((allProblems[i]['name'] not in completedProblems) and allproblemStatistics[i]['solvedCount'] >= minSolvedCount and allproblemStatistics[i]['solvedCount'] <= maxSolvedCount):
-                completedProblems[allProblems[i]['name']] = 1
+            if((allProblems[i]['name'] not in alreadySuggested) and (allProblems[i]['name'] not in completedProblems) and allproblemStatistics[i]['solvedCount'] >= minSolvedCount and allproblemStatistics[i]['solvedCount'] <= maxSolvedCount):
+                alreadySuggested[allProblems[i]['name']] = 1
                 tempList = []
                 tempList.append(allProblems[i]['name'])
                 tempList.append('https://codeforces.com/problemset/problem/' +
