@@ -63,9 +63,13 @@ def getTags(codeforcesHandle, rank):
     data = json.dumps(jsonData)
     submissions = json.loads(data)
     submissions = submissions['result']
+    visitedProblems = {}
     wrongSubmissions = {}
     for problem in submissions:
         if(problem['verdict'] != 'OK'):
+            if(problem['problem']['name'] in visitedProblems):
+                continue
+            visitedProblems[problem['problem']['name']] = 1
             for tags in problem['problem']['tags']:
                 if(tags not in wrongSubmissions):
                     wrongSubmissions[tags] = 1
@@ -128,6 +132,10 @@ def getProblems(tag, rank, minSolvedCount, maxSolvedCount):
     while(j < lengthOfProblemSet):
         j += 1
         i = random.randint(0, lengthOfProblemSet-1)
+        if("points" in allProblems[i] and allProblems[i]['points'] <= 1000):
+            continue
+        elif (allProblems[i]['index'] == 'A'):
+            continue
         if tag in allProblems[i]['tags']:
             if((allProblems[i]['name'] not in alreadySuggested) and (allProblems[i]['name'] not in completedProblems) and allproblemStatistics[i]['solvedCount'] >= minSolvedCount and allproblemStatistics[i]['solvedCount'] <= maxSolvedCount):
                 alreadySuggested[allProblems[i]['name']] = 1
