@@ -77,19 +77,19 @@ def getTags(codeforcesHandle, rank):
     minSolvedCount = 0
     maxSolvedCount = 35000
     if(rank < 1200):
-        minSolvedCount = 14000
-        maxSolvedCount = 17000
-    elif(rank < 1400):
-        minSolvedCount = 10000
-        maxSolvedCount = 15000
-    elif(rank < 1600):
-        minSolvedCount = 10000
+        minSolvedCount = 12000
         maxSolvedCount = 14000
+    elif(rank < 1400):
+        minSolvedCount = 9500
+        maxSolvedCount = 12000
+    elif(rank < 1600):
+        minSolvedCount = 8500
+        maxSolvedCount = 11000
     elif(rank < 1900):
-        minSolvedCount = 9000
-        maxSolvedCount += 12000
+        minSolvedCount = 7800
+        maxSolvedCount += 10000
     elif(rank < 2100):
-        minSolvedCount = 7000
+        minSolvedCount = 6900
         maxSolvedCount = 9000
     elif(rank < 2400):
         minSolvedCount = 4000
