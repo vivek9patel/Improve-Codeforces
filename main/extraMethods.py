@@ -81,32 +81,32 @@ def getTags(codeforcesHandle, rank):
     minSolvedCount = 0
     maxSolvedCount = 35000
     if(rank < 1200):
-        minSolvedCount = 14000
-        maxSolvedCount = 17000
+        minSolvedCount = 15000
+        maxSolvedCount = 18000
     elif(rank < 1400):
         minSolvedCount = 10000
-        maxSolvedCount = 15000
+        maxSolvedCount = 16000
     elif(rank < 1600):
-        minSolvedCount = 10000
+        minSolvedCount = 9000
         maxSolvedCount = 14000
     elif(rank < 1900):
         minSolvedCount = 9000
-        maxSolvedCount += 12000
+        maxSolvedCount = 12000
     elif(rank < 2100):
-        minSolvedCount = 7000
-        maxSolvedCount = 9000
+        minSolvedCount = 8000
+        maxSolvedCount = 10000
     elif(rank < 2400):
-        minSolvedCount = 4000
+        minSolvedCount = 5000
         maxSolvedCount = 7000
     elif(rank < 2600):
-        minSolvedCount = 2000
-        maxSolvedCount = 4000
+        minSolvedCount = 3000
+        maxSolvedCount = 5000
     elif(rank < 3000):
-        minSolvedCount = 500
-        maxSolvedCount = 2000
+        minSolvedCount = 1000
+        maxSolvedCount = 3000
     else:
         minSolvedCount = 0
-        maxSolvedCount = 1000
+        maxSolvedCount = 2000
     for tags in sorted(wrongSubmissions.items(), key=lambda x: x[1], reverse=True):
         weakTags[tags[0]] = getProblems(
             tags[0], rank, minSolvedCount, maxSolvedCount)
