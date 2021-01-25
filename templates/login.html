@@ -1,49 +1,53 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Login Page</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" type="text/css" href="{% static 'main/main.css'%}" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'main/util.css' %}"
-    />
-  </head>
-  <body>
-    <div class="limiter">
-      <div class="container-login100">
-        <div class="wrap-login100 p-b-160 p-t-50">
-          <form
-            class="login100-form validate-form"
-            action="login"
-            method="post"
-          >
-            {% csrf_token %}
-            <span class="login100-form-title p-b-43"> Account Login </span>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CLJ2NKE58"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-            <div
-              class="wrap-input100 rs1 validate-input"
-              data-validate="Username is required"
-            >
-              <input class="input100" type="text" name="username" required />
-              <span class="label-input100">Codeforces Username</span>
-            </div>
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-            <div class="container-login100-form-btn">
-              <button type="submit" class="login100-form-btn">Sign In</button>
-            </div>
-          </form>
-        </div>
+    gtag('config', 'G-5CLJ2NKE58');
+  </script>
+  <title>Login Page</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'main/main.css'%}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'main/util.css' %}" />
+</head>
+
+<body>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100 p-b-160 p-t-50">
+        <form class="login100-form validate-form" action="login" method="post">
+          {% csrf_token %}
+          <span class="login100-form-title p-b-43"> Account Login </span>
+
+          <div class="wrap-input100 rs1 validate-input" data-validate="Username is required">
+            <input class="input100" type="text" name="username" required />
+            <span class="label-input100">Codeforces Username</span>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <button type="submit" class="login100-form-btn">Sign In</button>
+          </div>
+        </form>
       </div>
     </div>
-    {% if giveError %}
-    <script>
-      alert("Username Doesn't Exist");
-    </script>
-    {% endif %}
-  </body>
+  </div>
+  {% if giveError %}
+  <script>
+    alert("Username Doesn't Exist");
+  </script>
+  {% endif %}
+</body>
+
 </html>

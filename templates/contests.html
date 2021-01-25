@@ -2,78 +2,68 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Future Contests</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
 
-    <!-- Font -->
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CLJ2NKE58"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CAllura"
-      rel="stylesheet"
-    />
-    <link
-      rel="icon"
-      type="image/jpg"
-      href="https://4.bp.blogspot.com/-XDhgx0rKXZs/XIFWwjkQFSI/AAAAAAAAE80/BZomz5pCmF0FyiqEXqFBcYWOx98noEB_wCPcBGAYYCw/w1200-h630-p-k-no-nu/codeforces.png"
-    />
-    <!-- Stylesheets -->
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    gtag('config', 'G-5CLJ2NKE58');
+  </script>
+  <title>Future Contests</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
 
-    <link
-      href="{% static 'profile/common-css/ionicons.css' %}"
-      rel="stylesheet"
-    />
+  <!-- Font -->
 
-    <link
-      href="{% static 'profile/01-cv-portfolio/css/styles.css' %}"
-      rel="stylesheet"
-    />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CAllura" rel="stylesheet" />
+  <link rel="icon" type="image/jpg"
+    href="https://4.bp.blogspot.com/-XDhgx0rKXZs/XIFWwjkQFSI/AAAAAAAAE80/BZomz5pCmF0FyiqEXqFBcYWOx98noEB_wCPcBGAYYCw/w1200-h630-p-k-no-nu/codeforces.png" />
+  <!-- Stylesheets -->
 
-    <link
-      href="{% static 'profile/01-cv-portfolio/css/responsive.css' %}"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <section id="contests">
-      <div class="contest-sec">
-        <div class="heading">
-          <h2>Upcoming Contests</h2>
-        </div>
-        <div class="container">
-          {% for contest in contests %}
-          <div class="card">
-            <img
-              src="{% static 'profile/images/codeforces-logo.jpg' %}"
-              class="card-img-top"
-              title="Codeforces Contest"
-            />
-            <div class="card-body">
-              <h5 class="card-title">{{contest.name}}</h5>
-              <p class="card-text">
-                <b>Start Time:</b> {{contest.startTimeSeconds}}
-              </p>
-              <p class="card-text">
-                <b>Duration:</b> {{contest.durationSeconds}}
-              </p>
-              <a
-                href="https://codeforces.com/contestRegistration/{{contest.id}}"
-                class="btn btn-primary"
-                target="_blank"
-                >Register »</a
-              >
-            </div>
-          </div>
-          {% endfor %}
-        </div>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link href="{% static 'profile/common-css/ionicons.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'profile/01-cv-portfolio/css/styles.css' %}" rel="stylesheet" />
+
+  <link href="{% static 'profile/01-cv-portfolio/css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <section id="contests">
+    <div class="contest-sec">
+      <div class="heading">
+        <h2>Upcoming Contests</h2>
       </div>
-    </section>
-  </body>
+      <div class="container">
+        {% for contest in contests %}
+        <div class="card">
+          <img src="{% static 'profile/images/codeforces-logo.jpg' %}" class="card-img-top"
+            title="Codeforces Contest" />
+          <div class="card-body">
+            <h5 class="card-title">{{contest.name}}</h5>
+            <p class="card-text">
+              <b>Start Time:</b> {{contest.startTimeSeconds}}
+            </p>
+            <p class="card-text">
+              <b>Duration:</b> {{contest.durationSeconds}}
+            </p>
+            <a href="https://codeforces.com/contestRegistration/{{contest.id}}" class="btn btn-primary"
+              target="_blank">Register »</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</body>
+
 </html>
